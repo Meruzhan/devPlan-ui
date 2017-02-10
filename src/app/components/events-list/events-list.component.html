@@ -1,0 +1,22 @@
+<div>
+    <h3>Events <i class="fa fa-plus-circle add-event-button" [routerLink]="['/events/add']"></i></h3>
+
+    <div class="row search-field">
+        <div>
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search...">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="list-group">
+            <a class="list-group-item" *ngFor="let event of events" [routerLink]="['/events', event.id]">
+                {{event.title}}
+            </a>
+        </div>
+    </div>
+</div>

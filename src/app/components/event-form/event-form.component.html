@@ -1,0 +1,26 @@
+<div class="col-md-6 col-md-offset-3">
+    <form (ngSubmit)="create()" #f="ngForm">
+        <h1>Create an Event</h1>
+
+        <div>
+            <fieldset>
+                <label for="title">Title</label>
+                <input class="form-control" type="text" [(ngModel)]="model.title" #title name="title" placeholder="Enter title">
+            </fieldset>
+
+            <fieldset>
+                <label for="startDate">Start Date</label>
+                <input class="form-control" type="datetime" [(ngModel)]="model.startDate" #startDate name="startDate">
+
+                <label for="endDate">Start Date</label>
+                <input class="form-control" type="datetime" [(ngModel)]="model.endDate" #endDate name="endDate">
+            </fieldset>
+        </div>
+
+        <div class="button-holder">
+            <fieldset>
+                <button class="btn btn-primary btn-block">Create</button>
+            </fieldset>
+        </div>
+    </form>
+</div>

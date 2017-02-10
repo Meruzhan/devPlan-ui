@@ -1,0 +1,41 @@
+<form class="col-md-4 col-md-offset-4" (ngSubmit)="onSubmit()" #signupForm="ngForm">
+    <h1>Sign up</h1>
+
+    <br/>
+
+    <fieldset>
+        <input class="form-control" type="text" name="firstName" placeholder="Enter first name"
+               [(ngModel)]="model.firstName" required>
+    </fieldset>
+
+    <fieldset>
+        <input class="form-control" type="text" name="lastName" placeholder="Enter last name"
+               [(ngModel)]="model.lastName" required>
+    </fieldset>
+
+    <!--<fieldset>-->
+        <!--<input class="form-control" type="text" name="age" placeholder="Enter age"-->
+               <!--[(ngModel)]="model.age" required>-->
+    <!--</fieldset>-->
+
+    <!--<fieldset>-->
+        <!--<input class="form-control" type="text" name="phone" placeholder="Enter phone"-->
+               <!--[(ngModel)]="model.phone" required>-->
+    <!--</fieldset>-->
+
+    <fieldset>
+        <input class="form-control" type="text" name="username" placeholder="Enter username"
+               [(ngModel)]="model.username" required>
+    </fieldset>
+
+    <fieldset>
+        <input class="form-control" type="password" name="password" placeholder="Enter password"
+               [(ngModel)]="model.password" required>
+    </fieldset>
+
+    <fieldset class="action-field">
+        <button class="btn btn-primary btn-block" [disabled]="!signupForm.form.valid">Sign up</button>
+    </fieldset>
+
+
+</form>

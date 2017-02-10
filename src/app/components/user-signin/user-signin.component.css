@@ -1,0 +1,42 @@
+input[name="userName"] {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+input[name="password"] {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.button-holder {
+    margin-top: 5px;
+}
+
+.button-center {
+    margin: 0 auto;
+}
+
+.error {
+    color: red;
+}
+
+.signin-field {
+    float: left;
+    width: 50%;
+    display: inline-block;
+}
+
+.signin-field > button {
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.signup-field {
+    display: inline-block;
+    width: 50%;
+}
+
+.signup-field > a {
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+}
