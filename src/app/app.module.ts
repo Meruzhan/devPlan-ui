@@ -16,6 +16,9 @@ import {EventService} from "./services/event.service";
 import {EventFormComponent} from './components/event-form/event-form.component';
 import {EventDetailsComponent} from './components/event-details/event-details.component';
 import {UserService} from "./services/user.service";
+import { MenuBarComponent } from './components/menu-bar/menu-bar.component';
+import { SubscriberComponent } from './components/subscriber/subscriber.component';
+import { PageComponent } from './components/page/page.component';
 
 @NgModule({
     declarations: [
@@ -26,7 +29,10 @@ import {UserService} from "./services/user.service";
         UserSignupComponent,
         EventsListComponent,
         EventFormComponent,
-        EventDetailsComponent
+        EventDetailsComponent,
+        MenuBarComponent,
+        SubscriberComponent,
+        PageComponent
     ],
     imports: [
         BrowserModule,

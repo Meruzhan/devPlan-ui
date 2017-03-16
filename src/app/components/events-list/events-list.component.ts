@@ -11,6 +11,7 @@ import {Event} from "../../models/event"
 export class EventsListComponent implements OnInit {
     events:Event[];
     private events$;
+    private role;
 
     constructor(
         private eventService:EventService,
@@ -22,6 +23,12 @@ export class EventsListComponent implements OnInit {
         this.events$.subscribe(
             events => this.events = events
         );
+        this.role = window.localStorage.getItem("role");
+    }
+
+
+    isRole(): boolean{
+        return this.role=="ROLE_ADMIN" || this.role=="ROLE_AUTHOR";
     }
 
     routerOnDeactivate() {

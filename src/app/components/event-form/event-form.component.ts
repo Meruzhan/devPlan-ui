@@ -17,9 +17,10 @@ export class EventFormComponent {
     ) {}
 
     create() {
+        this.model.author_id = localStorage.getItem("id");
         this.eventService.create(this.model).subscribe(
             data => {
-                this.router.navigate(['/events']);
+                this.router.navigateByUrl('/events');
             },
             error => {
                 this.error = true;

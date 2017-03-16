@@ -1,5 +1,7 @@
 <div>
-    <h3>Events <i class="fa fa-plus-circle add-event-button" [routerLink]="['/events/add']"></i></h3>
+
+    <h3 *ngIf="isRole()" >Events <i class="fa fa-plus-circle add-event-button" [routerLink]="['/events/add']"></i></h3>
+
 
     <div class="row search-field">
         <div>
@@ -14,9 +16,14 @@
 
     <div class="row">
         <div class="list-group">
-            <a class="list-group-item" *ngFor="let event of events" [routerLink]="['/events', event.id]">
-                {{event.title}}
-            </a>
+            <div class="list-group-item " *ngFor="let event of events" >
+                <h3><a [routerLink]="['/events', event.id]">{{event.title}}</a></h3>
+
+                <subscriber [countSubscribers]= "event.id"></subscriber>
+            </div>
+
+
         </div>
+       <devplan-page></devplan-page>
     </div>
 </div>

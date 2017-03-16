@@ -17,7 +17,7 @@ input[name="password"] {
 }
 
 .error {
-    color: red;
+    border-left: 5px solid #a94442;
 }
 
 .signin-field {
@@ -39,4 +39,14 @@ input[name="password"] {
 .signup-field > a {
     border-bottom-left-radius: 0;
     border-top-left-radius: 0;
+}
+.valid{
+    border-left: 5px solid #42A948;
+}
+
+.ng-valid[required], .ng-valid.required  {
+    border-left: 5px solid #42A948; /* green */
+}
+.ng-invalid:not(form)  {
+    border-left: 5px solid #a94442; /* red */
 }

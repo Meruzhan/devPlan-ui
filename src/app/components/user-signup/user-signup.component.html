@@ -4,12 +4,12 @@
     <br/>
 
     <fieldset>
-        <input class="form-control" type="text" name="firstName" placeholder="Enter first name"
+        <input class=" form-control action-field {{valid}}" type="text" name="firstName" placeholder="Enter first name"
                [(ngModel)]="model.firstName" required>
     </fieldset>
 
     <fieldset>
-        <input class="form-control" type="text" name="lastName" placeholder="Enter last name"
+        <input class="form-control action-field {{valid}}" type="text" name="lastName" placeholder="Enter last name"
                [(ngModel)]="model.lastName" required>
     </fieldset>
 
@@ -24,16 +24,19 @@
     <!--</fieldset>-->
 
     <fieldset>
-        <input class="form-control" type="text" name="username" placeholder="Enter username"
+        <input class="form-control action-field {{valid}}" type="text" name="username" placeholder="Enter username"
                [(ngModel)]="model.username" required>
     </fieldset>
 
     <fieldset>
-        <input class="form-control" type="password" name="password" placeholder="Enter password"
+        <input class="form-control action-field {{valid}}" type="password" name="password" placeholder="Enter password"
                [(ngModel)]="model.password" required>
     </fieldset>
+    <div [hidden] = "!valid" class="alert alert-danger action-field">
+        is not valid
+    </div >
 
-    <fieldset class="action-field">
+    <fieldset class="action-field ">
         <button class="btn btn-primary btn-block" [disabled]="!signupForm.form.valid">Sign up</button>
     </fieldset>
 

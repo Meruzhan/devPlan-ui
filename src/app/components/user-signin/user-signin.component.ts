@@ -1,9 +1,10 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, Renderer, ElementRef} from '@angular/core';
 import {Router} from "@angular/router";
 import {UserService} from "../../services/user.service";
 import {User} from "../../models/user";
 import {Response} from "@angular/http";
 import {isUndefined} from "util";
+import {element} from "protractor";
 
 @Component({
     selector: 'app-user-signin',
@@ -12,13 +13,22 @@ import {isUndefined} from "util";
 })
 export class UserSigninComponent implements OnInit {
     model: any;
-    private _userName:string;
-    private _password:string;
+    private _userName: string;
+    private _password: string;
+    private _valid: string;
 
-    constructor(
-        private router: Router,
-        private userService:UserService
-    ) {}
+    get valid(): string {
+        return this._valid;
+    }
+
+    set valid(value: string) {
+        this._valid = value;
+    }
+
+    constructor(private router: Router,
+                private userService: UserService,
+                private render: Renderer) {
+    }
 
     get userName(): string {
         return this._userName;
@@ -32,29 +42,25 @@ export class UserSigninComponent implements OnInit {
         return this._password;
     }
 
-    set password(value: string) {
-        this._password = value;
-    }
 
     ngOnInit() {
     }
 
     signin() {
-        let resp:any;
-        this.userService.login(this._userName,this._password).subscribe(response => {
+        let resp: any;
+
+        let v = this.userService.login(this._userName, this._password);
+        this.userService.login(this._userName, this._password).subscribe(response => {
             resp = response;
-
-            if ( resp!= null){
-
-                window.localStorage.setItem("userRole",resp.user.role);
-                window.localStorage.setItem("token",resp.token);
+            if (resp != null && resp != 400) {
+                window.localStorage.setItem("role", resp.user.role);
+                window.localStorage.setItem("token", resp.token);
+                window.localStorage.setItem("id", resp.user.id);
                 this.router.navigateByUrl('/events');
-            }else {
-
-                this.router.navigate(['/signin'])
+            } else {
+                this._valid = "5px solid #a94442";
             }
         });
-
 
     }
 }

@@ -24,17 +24,20 @@
 
         <div>
             <fieldset>
-                <input class="form-control" type="text" name="userName" [(ngModel)]="_userName" placeholder="Enter username">
+                <input class="form-control {{valid}}" type="text" name="userName" [(ngModel)]="_userName" #userName="ngModel" [style.border-left]="valid"  placeholder="Enter username">
             </fieldset>
 
             <fieldset>
-                <input class="form-control" type="password" name="password" [(ngModel)] ="_password" placeholder="Enter password">
+                <input class="form-control {{valid}}" [style.border-left]="valid" type="password" name="password" [(ngModel)] ="_password" #password="ngModel"  placeholder="Enter password">
             </fieldset>
         </div>
+        <div [hidden] = "!valid" class="alert alert-danger">
+            is not valid
+        </div >
 
         <div class="button-holder">
             <fieldset class="signin-field">
-                <button type="submit" class="btn btn-primary btn-block" [(ngModel)] ="userForm.form.valid">Sign in</button>
+                <button type="submit" class="btn btn-primary btn-block" [disabled] ="!userForm.form.valid">Sign in</button>
             </fieldset>
 
             <fieldset class="signup-field">

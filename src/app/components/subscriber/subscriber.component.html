@@ -1,0 +1,7 @@
+    <div class="btn-group  ">
+        <button *ngIf="isSubscribered || !isLogin()" (click)="subscriber()" type="button" class= "btn btn-danger btn-sm " role="button">Subscribe </button>
+        <button *ngIf="!isSubscribered && isLogin()" (click)="unSubscribe()" type="button" class= "btn btn-info btn-sm " role="button">UnSubscribe </button>
+        <button type="button" class="btn btn-default btn-sm" >{{subscriberCount}} </button>
+    </div>
+
+

@@ -7,21 +7,28 @@ import {Observable} from "rxjs";
 @Injectable()
 export class UserService {
     private baseUrl = SERVER_URL + '/users';
-    private headers = new Headers({'Content-Type':'application/json'});
+    private headers = new Headers({'Content-Type': 'application/json'});
 
 
-    constructor(private http:Http) {
+    constructor(private http: Http) {
     }
 
-    login(userName:any,password:any){
-        const url = SERVER_URL +"/login";
-        return this.http.post(url,{userName:userName,password:password}).map((response:Response) =>
-            response.json(),
-            (error:Response)=> "error"
-        ).catch((respons:Response)=> "")
+    login(userName: any, password: any): Observable<any> {
+        const url = SERVER_URL + "/login";
+        return this.http.post(url, {userName: userName, password: password})
+            .map((response: Response) => response.json())
+            .catch(this.handleError)
     }
 
-    create(user:User) {
-        return this.http.post(this.baseUrl, user).map((response:Response) => response.json());
+    private handleError(error: any) {
+        return Observable.of(error.status);
     }
+
+    create(user: User): Observable<any> {
+        return this.http.post(this.baseUrl, user)
+            .map((response: Response) => response.json())
+            .catch(this.handleError);
+    }
+
+
 }

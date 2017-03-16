@@ -1,0 +1,36 @@
+.menuBar{
+    margin-top: 3px;
+    width: 100%;
+    /*height: 50px;*/
+    /*background: #463eff;*/
+
+}
+.subscriber{
+    height: 5px;
+}
+
+.noBorder{
+    border: none;
+}
+.menuBarItems{
+    float:left;
+    display: inline;
+    margin-top: 1px;
+    border: 1px solid aliceblue;
+    padding: 13px;
+}
+
+.menuItemsP{
+    display: inline;
+    padding: 5px;
+    color: aliceblue;
+}
+
+a.hover{
+    background: #72ff4b;
+}
+
+.navbar-default{
+    color: aliceblue;
+
+}

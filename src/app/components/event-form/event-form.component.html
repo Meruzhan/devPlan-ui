@@ -5,15 +5,20 @@
         <div>
             <fieldset>
                 <label for="title">Title</label>
-                <input class="form-control" type="text" [(ngModel)]="model.title" #title name="title" placeholder="Enter title">
+                <input id="title" class="form-control" type="text" [(ngModel)]="model.title" #title name="title" placeholder="Enter title">
             </fieldset>
 
             <fieldset>
                 <label for="startDate">Start Date</label>
-                <input class="form-control" type="datetime" [(ngModel)]="model.startDate" #startDate name="startDate">
+                <input id="startDate" class="form-control" type="datetime" [(ngModel)]="model.startDate" #startDate name="startDate">
 
                 <label for="endDate">Start Date</label>
-                <input class="form-control" type="datetime" [(ngModel)]="model.endDate" #endDate name="endDate">
+                <input id="endDate" class="form-control" type="datetime" [(ngModel)]="model.endDate" #endDate name="endDate">
+            </fieldset>
+
+            <fieldset>
+                <label for="description">Description</label>
+                <textarea id="description" class="form-control"  [(ngModel)]="model.description" #description name="description"></textarea>
             </fieldset>
         </div>
 
