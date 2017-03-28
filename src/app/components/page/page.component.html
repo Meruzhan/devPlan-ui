@@ -1,6 +1,12 @@
 <ul class="pagination eventPage">
-    <li class=""><a type="button" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
-    <li class="" > <a type="button" >1 <span class="sr-only">(current)</span></a></li>
-    <li class="active" > <a type="button">2 <span class="sr-only">(current)</span></a></li>
-    <li><a type="button" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
+    <li [class.disabled]="currentPage==0"><a type="button" aria-label="Previous" (click)="previousPage($event)"><span
+        aria-hidden="false">&laquo;</span></a></li>
+    <li *ngFor="let page of getPageSize(); let i = index" [class.active]="currentPage == page-1"
+        (click)="setPageNumber(page-1)"><a type="button">{{page}} <span class="sr-only">(current)</span></a></li>
+    <li *ngIf="totalPages -currentPage >= 4"><a type="button">... <span class="sr-only">(current)</span></a></li>
+    <li *ngIf="totalPages -currentPage >=4"><a type="button">{{totalPages}}<span class="sr-only">(current)</span></a>
+    </li>
+    <li (click)="nextPage($event)" [class.disabled]="currentPage+1 == totalPages"><a type="button" aria-hidden="false"
+                                                                                  aria-label="Next" ><span>&raquo;</span></a>
+    </li>
 </ul>

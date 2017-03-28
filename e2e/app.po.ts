@@ -6,6 +6,6 @@ export class DevplanAngularUiPage {
   }
 
   getParagraphText() {
-    return element(by.css('app-root h1')).getText();
+    return element(by.css('data-picker.component-root h1')).getText();
   }
 }

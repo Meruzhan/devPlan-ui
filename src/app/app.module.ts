@@ -19,6 +19,7 @@ import {UserService} from "./services/user.service";
 import { MenuBarComponent } from './components/menu-bar/menu-bar.component';
 import { SubscriberComponent } from './components/subscriber/subscriber.component';
 import { PageComponent } from './components/page/page.component';
+import {CalendarModule} from "primeng/components/calendar/calendar";
 
 @NgModule({
     declarations: [
@@ -39,7 +40,9 @@ import { PageComponent } from './components/page/page.component';
         FormsModule,
         HttpModule,
         routing,
-        AlertModule
+        AlertModule,
+        CalendarModule
+
     ],
     providers: [
         EventService,

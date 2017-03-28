@@ -1,12 +1,12 @@
 <div>
 
-    <h3 *ngIf="isRole()" >Events <i class="fa fa-plus-circle add-event-button" [routerLink]="['/events/add']"></i></h3>
+    <h3 *ngIf="isRole()">Events <i class="fa fa-plus-circle add-event-button" [routerLink]="['/events/add']"></i></h3>
 
 
     <div class="row search-field">
         <div>
             <div class="input-group">
-                <input type="text" class="form-control" placeholder="Search...">
+                <input #search type="text" (keyup)="searchEvent(search.value)" class="form-control" placeholder="Search...">
                 <span class="input-group-btn">
                     <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
                 </span>
@@ -16,14 +16,12 @@
 
     <div class="row">
         <div class="list-group">
-            <div class="list-group-item " *ngFor="let event of events" >
+            <div class="list-group-item " *ngFor="let event of events">
                 <h3><a [routerLink]="['/events', event.id]">{{event.title}}</a></h3>
-
-                <subscriber [countSubscribers]= "event.id"></subscriber>
+                <subscriber [countSubscribers]="event.id"></subscriber>
             </div>
-
-
         </div>
-       <devplan-page></devplan-page>
+        <devplan-page #pages (click)="getEvent(pages.currentPage)" *ngIf="page" [totalPages]="page.totalPages"
+                      [currentPage]="page.number"></devplan-page>
     </div>
 </div>

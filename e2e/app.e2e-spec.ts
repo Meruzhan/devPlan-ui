@@ -7,8 +7,8 @@ describe('devplan-angular-ui App', function() {
     page = new DevplanAngularUiPage();
   });
 
-  it('should display message saying app works', () => {
+  it('should display message saying data-picker.component works', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('app works!');
+    expect(page.getParagraphText()).toEqual('data-picker.component works!');
   });
 });

@@ -1,31 +1,62 @@
 <div class="col-md-6 col-md-offset-3">
-    <form (ngSubmit)="create()" #f="ngForm">
-        <h1>Create an Event</h1>
+    <!--<form (ngSubmit)="create()" #f="ngForm">-->
+    <h1>Create an Event</h1>
 
-        <div>
-            <fieldset>
-                <label for="title">Title</label>
-                <input id="title" class="form-control" type="text" [(ngModel)]="model.title" #title name="title" placeholder="Enter title">
-            </fieldset>
+    <div>
+        <fieldset>
+            <label for="title">Title</label>
+            <input id="title" class="form-control" type="text" [(ngModel)]="model.title" #title name="title"
+                   placeholder="Enter title">
+        </fieldset>
 
-            <fieldset>
+
+        <fieldset>
+            <label for="description">Description</label>
+            <input id="description" class="form-control" type="text" [(ngModel)]="model.description" #title name="title"
+                   placeholder="Enter title">
+        </fieldset>
+        <fieldset>
+            <div class="width-class-for-calendar">
                 <label for="startDate">Start Date</label>
-                <input id="startDate" class="form-control" type="datetime" [(ngModel)]="model.startDate" #startDate name="startDate">
+                <div class="width-class-for-calendar">
+                    <p-calendar id="startDate" [(ngModel)]="model.startDate" [styleClass]="'form-group'"
+                                [inputStyleClass]="'form-group width-class-for-calendar'"
+                                [monthNavigator]="true" [yearNavigator]="true" yearRange="2000:2030"
+                                [showIcon]="true"></p-calendar>
+                </div>
+            </div>
 
-                <label for="endDate">Start Date</label>
-                <input id="endDate" class="form-control" type="datetime" [(ngModel)]="model.endDate" #endDate name="endDate">
-            </fieldset>
+            <div class="width-class-for-calendar button-holder">
+                <label for="endDate">End Date</label>
+                <div class="width-class-for-calendar">
+                    <p-calendar id="endDate" [(ngModel)]="model.endDate" [styleClass]="'form-group'"
+                                [inputStyleClass]="'form-group width-class-for-calendar'"
+                                [monthNavigator]="true" [yearNavigator]="true" yearRange="2000:2030"
+                                [showIcon]="true"></p-calendar>
+                </div>
+            </div>
 
-            <fieldset>
-                <label for="description">Description</label>
-                <textarea id="description" class="form-control"  [(ngModel)]="model.description" #description name="description"></textarea>
-            </fieldset>
+            <div class=" button-holder">
+                <label for="time">Time</label>
+                <div class="">
+                    <p-calendar id="time" [styleClass]="'form-group'" [inputStyleClass]=""
+                                [timeOnly]="true"></p-calendar>
+                </div>
+            </div>
+
+
+        </fieldset>
+
+        <div [hidden]="!valid" class="alert alert-danger action-field">
+            is not valid
         </div>
+
 
         <div class="button-holder">
             <fieldset>
-                <button class="btn btn-primary btn-block">Create</button>
+                <button (click)="create()" class="btn btn-primary btn-block">Create</button>
             </fieldset>
         </div>
-    </form>
+    </div>
+
 </div>
